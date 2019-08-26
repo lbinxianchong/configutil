@@ -16,8 +16,6 @@ public class OfficeManager {
     private static final LocalOfficeManager officeManager = LocalOfficeManager.builder().officeHome(ConfigProperties.getConfig("officemanager")).build();
     /**
      *
-     * @param
-     * @return void
      * @date 2019/8/26 15:15
      * @Description 初始化OfficeManager
      */
@@ -32,8 +30,6 @@ public class OfficeManager {
     }
     /**
      *
-     * @param
-     * @return void
      * @date 2019/8/26 15:16
      * @Description 停止officeManager
      */
@@ -46,7 +42,7 @@ public class OfficeManager {
      * @param file 文档转码
      * @return java.lang.String
      * @date 2019/8/26 15:16
-     * @Description
+     * @Description 文档转码pdf
      */
     public static String onToPDF(String file) {
         try {

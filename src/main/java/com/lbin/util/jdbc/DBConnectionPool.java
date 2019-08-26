@@ -31,6 +31,10 @@ public class DBConnectionPool {
         }
     }
 
+    /**
+     * oracle初始化
+     */
+
     private void oracleinti() {
         try {
             // 数据源进行各种有效的控制：
@@ -87,6 +91,10 @@ public class DBConnectionPool {
         }
     }
 
+    /**
+     * mysql初始化
+     */
+
     private void mysqlinit(){
         try {
             /**获取属性文件中的值**/
@@ -141,7 +149,7 @@ public class DBConnectionPool {
     /**
      * 获取数据库连接对象，单例
      *
-     * @return
+     * @return 数据库连接对象
      */
     public static DBConnectionPool getInstance() {
         if (dbConnection == null) {
@@ -155,9 +163,9 @@ public class DBConnectionPool {
     }
 
     /**
-     * 获取数据库连接
-     *
+     *  获取数据库连接
      * @return 数据库连接
+     * @throws SQLException
      */
     public final synchronized Connection getConnection() throws SQLException {
         return cpds.getConnection();
@@ -166,7 +174,7 @@ public class DBConnectionPool {
     /**
      * finalize()方法是在垃圾收集器删除对象之前对这个对象调用的。
      *
-     * @throws Throwable
+     * @throws Throwable 抛出
      */
     protected void finalize() throws Throwable {
         DataSources.destroy(cpds);

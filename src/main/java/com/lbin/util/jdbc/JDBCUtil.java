@@ -288,9 +288,9 @@ public class JDBCUtil {
      * 通过sql查询数据,
      * 慎用，会有sql注入问题
      *
-     * @param sql
+     * @param sql sql语句
      * @return 查询的数据集合
-     * @throws SQLException
+     * @throws SQLException 数据库异常抛出
      */
     public static List<Map<String, Object>> query(String sql) throws SQLException {
         return executeQuery(sql, null);
@@ -302,7 +302,7 @@ public class JDBCUtil {
      * @param tableName 表名
      * @param whereMap  where条件
      * @return List<Map<String, Object>>
-     * @throws SQLException
+     * @throws SQLException 数据库异常抛出
      */
     public static List<Map<String, Object>> query(String tableName,
                                                   Map<String, Object> whereMap) throws Exception {
@@ -330,7 +330,7 @@ public class JDBCUtil {
      * @param whereClause where条件的sql
      * @param whereArgs   where条件中占位符中的值
      * @return List<Map<String, Object>>
-     * @throws SQLException
+     * @throws SQLException 数据库异常抛出
      */
     public static List<Map<String, Object>> query(String tableName,
                                                   String whereClause,
@@ -351,7 +351,7 @@ public class JDBCUtil {
      * @param orderBy       排序
      * @param limit         分页
      * @return List<Map<String, Object>>
-     * @throws SQLException
+     * @throws SQLException 数据库异常抛出
      */
     public static List<Map<String, Object>> query(String tableName,
                                                   boolean distinct,
@@ -419,7 +419,7 @@ public class JDBCUtil {
      *
      * @param resultSet 结果多想
      * @return 结果的封装
-     * @throws SQLException
+     * @throws SQLException 数据库异常抛出
      */
     private static List<Map<String, Object>> getDatas(ResultSet resultSet) throws SQLException {
         List<Map<String, Object>> datas = new ArrayList<>();
@@ -502,6 +502,12 @@ public class JDBCUtil {
     /**
      * Add the names that are non-null in columns to s, separating
      * them with commas.
+     */
+    /**
+     * 将列中非空的名称添加到s，用逗号分隔
+     * @param s 查询字段名字符串
+     * @param columns 查询的字段名数组
+     *
      */
     private static void appendColumns(StringBuilder s, String[] columns) {
         int n = columns.length;

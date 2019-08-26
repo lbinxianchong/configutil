@@ -16,9 +16,9 @@ public class FFmpegUtil {
      * @param ffmpegPath ffmpeg插件路径
 	 * @param inputPath 视频转码文件路径
 	 * @param format 视频格式
-     * @return void
      * @date 2019/8/26 15:07
      * @Description 视频格式转换
+     * @throws Exception 视频异常抛出
      */
     private static void ffmpegTranscod(String ffmpegPath,String inputPath,String format) throws Exception {
         int num = inputPath.lastIndexOf(".");
@@ -32,9 +32,9 @@ public class FFmpegUtil {
      * @param inputPath 视频转码文件路径
      * @param format 视频格式
      * @param coding 视频编码
-     * @return void
      * @date 2019/8/26 15:07
      * @Description 视频格式转换（设置编码）
+     * @throws Exception 视频异常抛出
      */
     private static void ffmpegTranscod(String ffmpegPath,String inputPath,String format,String coding) throws Exception {
         int num = inputPath.lastIndexOf(".");
@@ -45,7 +45,6 @@ public class FFmpegUtil {
     /**
      *
      * @param inputPath 视频转码文件路径
-     * @return void
      * @date 2019/8/26 15:18
      * @Description 视频格式转换MP4（h264编码）
      */
@@ -59,7 +58,6 @@ public class FFmpegUtil {
     /**
      *
      * @param inputPath 视频转码文件路径
-     * @return void
      * @date 2019/8/26 15:18
      * @Description 视频格式转换MP4（h264编码）
      */

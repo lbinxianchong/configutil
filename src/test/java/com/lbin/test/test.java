@@ -1,3 +1,5 @@
+package com.lbin.test;
+
 import com.lbin.util.jdbc.JDBCUtil;
 import org.junit.jupiter.api.Test;
 
@@ -7,11 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @创建人 lbin
- * @创建时间 $date$
- * @描述
- */
 public class test {
     public static void main(String[] args) {
 

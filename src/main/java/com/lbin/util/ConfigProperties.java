@@ -13,7 +13,6 @@ public class ConfigProperties {
 
     /**
      *
-     * @param
      * @return java.util.Map<java.lang.String,java.lang.String>
      * @date 2019/8/26 15:03
      * @Description 获取ProertiesMap集合

@@ -15,9 +15,9 @@ public final class CommandLineUtils {
     /**
      *
      * @param cmd 命令行执行代码
-     * @return void
      * @date 2019/8/26 15:06
      * @Description cmd命令行执行
+     * @throws Exception 无异常抛出
      */
     public static void executeCmd(String cmd) throws Exception {
         CommandLine commandLine = CommandLine.parse(cmd);
