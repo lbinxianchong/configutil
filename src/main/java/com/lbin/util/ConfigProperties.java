@@ -12,13 +12,13 @@ public class ConfigProperties {
     private static Map<String, String> proertiesMap = null;
 
     /**
-     * 
-     * @参数  
-     * @返回值 java.util.Map<java.lang.String,java.lang.String>
-     * @开发者 lbin
-     * @更新时间 2019/8/21 16:12 
-     * @描述 获取ProertiesMap集合
+     *
+     * @param
+     * @return java.util.Map<java.lang.String,java.lang.String>
+     * @date 2019/8/26 15:03
+     * @Description 获取ProertiesMap集合
      */
+
     private static Map<String, String> getProertiesMap() {
         Map<String, String> map = new HashMap<String, String>();
         Properties properties = new Properties();
@@ -37,12 +37,11 @@ public class ConfigProperties {
         return map;
     }
     /**
-     * 
-     * @参数 config 
-     * @返回值 java.lang.String
-     * @开发者 lbin
-     * @更新时间 2019/8/21 16:13 
-     * @描述 获取ProertiesMap集合value数值
+     *
+     * @param config 配置key
+     * @return java.lang.String
+     * @date 2019/8/26 15:05 value
+     * @Description 获取ProertiesMap集合配置key对应的value
      */
     public static String getConfig(String config) {
         if (proertiesMap == null) {

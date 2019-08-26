@@ -14,14 +14,12 @@ public final class CommandLineUtils {
 
     /**
      *
-     * @参数 cmd
-     * @返回值 void
-     * @开发者 lbin
-     * @更新时间 2019/8/21 16:11
-     * @描述 cmd命令行执行
+     * @param cmd 命令行执行代码
+     * @return void
+     * @date 2019/8/26 15:06
+     * @Description cmd命令行执行
      */
     public static void executeCmd(String cmd) throws Exception {
-        System.out.println("cmd={}."+cmd);
         CommandLine commandLine = CommandLine.parse(cmd);
         DefaultExecutor executor = new DefaultExecutor();
         DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();

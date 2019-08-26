@@ -14,6 +14,13 @@ import java.io.File;
  */
 public class OfficeManager {
     private static final LocalOfficeManager officeManager = LocalOfficeManager.builder().officeHome(ConfigProperties.getConfig("officemanager")).build();
+    /**
+     *
+     * @param
+     * @return void
+     * @date 2019/8/26 15:15
+     * @Description 初始化OfficeManager
+     */
     public static void startOfficeManager() {
         try {
             officeManager.start();
@@ -23,10 +30,24 @@ public class OfficeManager {
             e.printStackTrace();
         }
     }
+    /**
+     *
+     * @param
+     * @return void
+     * @date 2019/8/26 15:16
+     * @Description 停止officeManager
+     */
     public static void destroy() {
         OfficeUtils.stopQuietly(officeManager);
     }
 
+    /**
+     *
+     * @param file 文档转码
+     * @return java.lang.String
+     * @date 2019/8/26 15:16
+     * @Description
+     */
     public static String onToPDF(String file) {
         try {
             String baseName = FilenameUtils.getBaseName(file);

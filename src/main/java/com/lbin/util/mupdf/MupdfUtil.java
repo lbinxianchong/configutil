@@ -26,6 +26,13 @@ public class MupdfUtil {
      * @更新时间 2019/8/21 16:41
      * @描述 pdf转svg图片
      */
+    /**
+     *
+     * @param pdfFile pdf转码文件路径
+     * @return java.util.List<java.lang.String>
+     * @date 2019/8/26 15:13
+     * @Description pdf转svg图片
+     */
     public static List<String> onToSVG(String pdfFile) {
         List<String> svgFiles = new ArrayList<String>();
         try {

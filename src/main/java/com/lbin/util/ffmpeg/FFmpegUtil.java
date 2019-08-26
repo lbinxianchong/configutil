@@ -6,26 +6,66 @@ import com.lbin.util.cmd.CommandLineUtils;
 /**
  * 视频转码工具FFmpeg
  */
+
 public class FFmpegUtil {
+
     private static String LocalFFmpeg= ConfigProperties.getConfig("ffmpeg");
+
     /**
      *
-     * @参数 ffmpegPath
-	 * @参数 inputPath
-     * @返回值 void
-     * @开发者 lbin
-     * @更新时间 2019/8/21 16:18
-     * @描述 视频格式转换MP4
+     * @param ffmpegPath ffmpeg插件路径
+	 * @param inputPath 视频转码文件路径
+	 * @param format 视频格式
+     * @return void
+     * @date 2019/8/26 15:07
+     * @Description 视频格式转换
      */
-    private static void ffmpegToMp4(String ffmpegPath,String inputPath) throws Exception {
+    private static void ffmpegTranscod(String ffmpegPath,String inputPath,String format) throws Exception {
         int num = inputPath.lastIndexOf(".");
-        String outPath=inputPath.substring(0,num+1)+"mp4";
-        String cmd = String.format("%s\\ffmpeg -i %s -vcodec h264 %s", ffmpegPath,inputPath,outPath);
+        String outPath=inputPath.substring(0,num+1)+format;
+        String cmd = String.format("%s\\ffmpeg -i %s %s", ffmpegPath,inputPath,outPath);
         CommandLineUtils.executeCmd(cmd);
     }
+    /**
+     *
+     * @param ffmpegPath ffmpeg插件路径
+     * @param inputPath 视频转码文件路径
+     * @param format 视频格式
+     * @param coding 视频编码
+     * @return void
+     * @date 2019/8/26 15:07
+     * @Description 视频格式转换（设置编码）
+     */
+    private static void ffmpegTranscod(String ffmpegPath,String inputPath,String format,String coding) throws Exception {
+        int num = inputPath.lastIndexOf(".");
+        String outPath=inputPath.substring(0,num+1)+format;
+        String cmd = String.format("%s\\ffmpeg -i %s -vcodec %s %s", ffmpegPath,inputPath,coding,outPath);
+        CommandLineUtils.executeCmd(cmd);
+    }
+    /**
+     *
+     * @param inputPath 视频转码文件路径
+     * @return void
+     * @date 2019/8/26 15:18
+     * @Description 视频格式转换MP4（h264编码）
+     */
+    public static void onToH264MP4(String inputPath){
+        try {
+            ffmpegTranscod(LocalFFmpeg,inputPath,"mp4","h264");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    /**
+     *
+     * @param inputPath 视频转码文件路径
+     * @return void
+     * @date 2019/8/26 15:18
+     * @Description 视频格式转换MP4（h264编码）
+     */
     public static void onToMP4(String inputPath){
         try {
-            ffmpegToMp4(LocalFFmpeg,inputPath);
+            ffmpegTranscod(LocalFFmpeg,inputPath,"mp4","h264");
         } catch (Exception e) {
             e.printStackTrace();
         }
