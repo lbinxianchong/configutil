@@ -1,4 +1,4 @@
-package com.lbin.util.crawler.website.mh160;
+package com.lbin.util.crawler.website.mh160.model;
 
 import com.lbin.util.crawler.model.SearchPojo;
 import com.xuxueli.crawler.annotation.PageFieldSelect;

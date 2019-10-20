@@ -1,4 +1,4 @@
-package com.lbin.util.crawler.website.mh160;
+package com.lbin.util.crawler.website.mh160.pageparser;
 
 import com.lbin.util.crawler.model.SearchPojo;
 import com.lbin.util.crawler.website.mh160_2.mh160.Mh160SearchPojo;
@@ -11,7 +11,7 @@ import java.util.List;
 
 //搜索处理
 public class Mh160SearchPageParser extends PageParser<Mh160SearchPojo> {
-    public  List<SearchPojo> searchPojoList = new ArrayList<>();
+    private List<SearchPojo> searchPojoList = new ArrayList<>();
 
     @Override
     public void parse(Document document, Element element, Mh160SearchPojo mh160Search) {

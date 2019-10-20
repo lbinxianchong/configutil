@@ -1,6 +1,7 @@
 package com.lbin.util.crawler.model;
 
 
+import com.lbin.util.crawler.util.ModelUtil;
 import lombok.Data;
 
 import java.util.List;
@@ -19,7 +20,7 @@ public class Comic {
     /**
      * 漫画标题
      */
-    private String comictitle;
+    private String comicname;
 
     /**
      * 漫画封面图片url
@@ -73,6 +74,35 @@ public class Comic {
 
         return comicPojo;
     }*/
+
+    public Comic getComic(){
+        /*Comic comic =new Comic();
+        comic.setComicurl(getComicurl());
+        comic.setComicname(getComicname());
+        comic.setCoverurlimg(getCoverurlimg());
+        comic.setCoverimg(getCoverimg());
+        comic.setAuthor(getAuthor());
+        comic.setCategory(getCategory());
+        comic.setIntroduction(getIntroduction());
+        comic.setChapter(getChapter());
+        comic.setChapterurl(getChapterurl());
+        comic.setChaptername(getChaptername());*/
+
+
+        Comic comic =new Comic();
+        comic.setComicurl(ModelUtil.ToString(getComicurl()));
+        comic.setComicname(ModelUtil.ToString(getComicname()));
+        comic.setCoverurlimg(ModelUtil.ToString(getCoverurlimg()));
+        comic.setCoverimg(ModelUtil.ToString(getCoverimg()));
+        comic.setAuthor(ModelUtil.ToListString(getAuthor()));
+        comic.setCategory(ModelUtil.ToListString(getCategory()));
+        comic.setIntroduction(ModelUtil.ToString(getIntroduction()));
+        comic.setChapter(getChapter());
+        comic.setChapterurl(ModelUtil.ToListString(getChapterurl()));
+        comic.setChaptername(ModelUtil.ToListString(getChaptername()));
+
+        return comic;
+    }
 
 
 }

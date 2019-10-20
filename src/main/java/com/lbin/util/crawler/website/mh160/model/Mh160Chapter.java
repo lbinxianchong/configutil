@@ -1,14 +1,13 @@
-package com.lbin.util.crawler.model;
+package com.lbin.util.crawler.website.mh160.model;
 
 import lombok.Data;
-
 
 import java.io.Serializable;
 import java.util.List;
 
 
 @Data
-public class Chapter implements Serializable {
+public class Mh160Chapter implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -27,29 +26,8 @@ public class Chapter implements Serializable {
     private String chaptername;
 
     /**
-     * 图片地址
-     */
-    private String imgurl;
-
-    /**
-     * 图片地址List
-     */
-    private List<String> imgurlList;
-
-    /**
      * 章节图片数量
      */
     private Integer number;
-
-    /**
-     * 章节排序
-     */
-    private Integer indexno;
-
-    /**
-     * 漫画id
-     */
-    private Long pojpid;
-
 
 }
