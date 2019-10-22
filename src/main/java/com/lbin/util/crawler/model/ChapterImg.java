@@ -3,6 +3,7 @@ package com.lbin.util.crawler.model;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 
 @Data
@@ -29,6 +30,11 @@ public class ChapterImg implements Serializable {
      * 漫画url
      */
     private String imgurl;
+
+    /**
+     * 漫画url
+     */
+    private List<String> imgurls;
 
     /**
      * 漫画数量

@@ -1,16 +1,15 @@
-package com.lbin.util.crawler.website.mh160.model;
+package com.lbin.util.crawler.website.demo.model;
 
 import com.lbin.util.crawler.model.Chapter;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
-import java.util.List;
 
 
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class Mh160Chapter extends Chapter implements Serializable {
+public class DemoChapter extends Chapter implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**

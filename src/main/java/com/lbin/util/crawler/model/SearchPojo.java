@@ -5,6 +5,9 @@ import lombok.Data;
 
 import java.io.Serializable;
 
+/**
+ * 搜索实体
+ */
 @Data
 public class SearchPojo implements Serializable {
     private static final long serialVersionUID = 1L;

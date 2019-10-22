@@ -1,4 +1,4 @@
-package com.lbin.util.crawler.website.mh160.model;
+package com.lbin.util.crawler.website.demo.model;
 
 import com.lbin.util.crawler.model.ChapterImg;
 import com.xuxueli.crawler.annotation.PageFieldSelect;
@@ -12,18 +12,18 @@ import static com.xuxueli.crawler.conf.XxlCrawlerConf.SelectType.ATTR;
 //章节url实体
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class Mh160ChapterImg extends ChapterImg implements Serializable {
+public class DemoChapterImg extends ChapterImg implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    @PageFieldSelect(cssQuery = ".w996.title.pr > h1 > a")
+    @PageFieldSelect(cssQuery = "")
     private String comicname;
 
-    @PageFieldSelect(cssQuery = ".w996.title.pr > h2")
+    @PageFieldSelect(cssQuery = "")
     private String chaptername;
 
-    @PageFieldSelect(selectType =ATTR,selectVal = "src",cssQuery = "#qTcms_pic")
+    @PageFieldSelect(selectType =ATTR,selectVal = "src",cssQuery = "")
     private String img;
 
-    @PageFieldSelect(cssQuery="#k_total")
+    @PageFieldSelect(cssQuery="")
     private int number;
 }

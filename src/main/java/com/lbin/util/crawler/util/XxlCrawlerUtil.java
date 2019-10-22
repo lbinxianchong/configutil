@@ -109,6 +109,25 @@ public class XxlCrawlerUtil {
         crawler.start(sync);
     }
 
+    /**
+     * 爬虫主程序(同步)
+     * @param allowSpread
+     * @param threadCount
+     * @param pageParser
+     * @param urls
+     */
+    public static void Crawle(boolean sync,boolean allowSpread,int threadCount, PageParser pageParser,String... urls) {
+        // 构造爬虫
+        XxlCrawler crawler = new XxlCrawler.Builder()
+                .setUrls(urls)
+                .setAllowSpread(allowSpread)
+                .setThreadCount(threadCount)
+                .setPageParser(pageParser)
+                .build();
+        // 启动
+        crawler.start(sync);
+    }
+
 
 
 

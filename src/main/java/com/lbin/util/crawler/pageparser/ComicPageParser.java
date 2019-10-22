@@ -6,12 +6,15 @@ import com.xuxueli.crawler.parser.PageParser;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-//漫画实体处理
+/**
+ * 漫画处理
+ */
 public class ComicPageParser<T extends Comic> extends PageParser<T> {
     private Comic comic = new Comic();
     @Override
     public void parse(Document document, Element element, T t) {
-        comic=t;
+        this.comic=t;
+        this.comic.setComicurl(document.baseUri());
     }
 
     public Comic getComic() {

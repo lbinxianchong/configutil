@@ -8,7 +8,9 @@ import org.jsoup.nodes.Element;
 import java.util.ArrayList;
 import java.util.List;
 
-//搜索处理
+/**
+ * 章节处理
+ */
 public class ChapterPageParser<T extends Chapter> extends PageParser <T> {
     private List<Chapter> chapterListList = new ArrayList<>();
 

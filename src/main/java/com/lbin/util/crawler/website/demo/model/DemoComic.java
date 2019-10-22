@@ -1,37 +1,30 @@
-package com.lbin.util.crawler.website.mh160.model;
+package com.lbin.util.crawler.website.demo.model;
 
-import com.geccocrawler.gecco.annotation.*;
-import com.geccocrawler.gecco.request.HttpRequest;
-import com.geccocrawler.gecco.spider.HtmlBean;
-import com.lbin.util.ConfigProperties;
 import com.lbin.util.crawler.model.Comic;
-import com.lbin.util.crawler.util.ModelUtil;
 import com.xuxueli.crawler.annotation.PageFieldSelect;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
-import java.lang.reflect.Field;
 import java.util.List;
 
 //漫画url实体
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class Mh160Comic extends Comic implements Serializable {
+public class DemoComic extends Comic implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
      * 漫画标题
      */
-    @PageFieldSelect(cssQuery = ".mh-date-info-name > h4 > a")
+    @PageFieldSelect(cssQuery = "")
     private String comicname;
 
     /**
      * 漫画封面图片url
      */
-    @PageFieldSelect(cssQuery = ".mh-date-bgpic > a > img")
-    private String coverurlimg;
-
+    @PageFieldSelect(cssQuery = "")
+    private String coverimgurl;
 
     /**
      * 漫画作者
@@ -48,13 +41,13 @@ public class Mh160Comic extends Comic implements Serializable {
     /**
      * 漫画介绍
      */
-    @PageFieldSelect(cssQuery = "#workint > p")
+    @PageFieldSelect(cssQuery = "")
     private String introduction;
 
     /**
      * 漫画章节url
      */
-    /*@PageFieldSelect(cssQuery = "#mh-chapter-list-ol-0 > li > a ")
-    private List<String> chapterurl;*/
+    @PageFieldSelect(cssQuery = "")
+    private List<String> chapterurl;
 
 }

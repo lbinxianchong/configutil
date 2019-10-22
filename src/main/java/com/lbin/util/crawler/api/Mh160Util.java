@@ -1,10 +1,19 @@
 package com.lbin.util.crawler.api;
 
 import com.lbin.util.crawler.config.CrawlerConfig;
+import com.lbin.util.crawler.model.Chapter;
+import com.lbin.util.crawler.model.ChapterImg;
+import com.lbin.util.crawler.model.Comic;
 import com.lbin.util.crawler.model.SearchPojo;
+import com.lbin.util.crawler.pageparser.ChapterImgPageParser;
+import com.lbin.util.crawler.pageparser.ChapterPageParser;
+import com.lbin.util.crawler.pageparser.ComicPageParser;
 import com.lbin.util.crawler.pageparser.SearchPageParser;
 import com.lbin.util.crawler.util.GeccoUtil;
 import com.lbin.util.crawler.util.XxlCrawlerUtil;
+import com.lbin.util.crawler.website.mh160.pageparser.Mh160ChapterImgPageParser;
+import com.lbin.util.crawler.website.mh160.pageparser.Mh160ChapterPageParser;
+import com.lbin.util.crawler.website.mh160.pageparser.Mh160ComicPageParser;
 import com.lbin.util.crawler.website.mh160.pageparser.Mh160SearchPageParser;
 import com.xuxueli.crawler.XxlCrawler;
 import com.xuxueli.crawler.loader.strategy.HtmlUnitPageLoader;
@@ -20,7 +29,27 @@ public class Mh160Util {
      * @param url
      */
     public static void Mh160ComicByUrlCrawler(String url) {
-       GeccoUtil.ComicDownload(url,CrawlerConfig.Mh160ComicPATH);
+        ComicPageParser comicPageParser = new Mh160ComicPageParser();
+        XxlCrawlerUtil.Crawle(true,false,1,comicPageParser ,url);
+        Comic comic = comicPageParser.getComic();
+        System.out.println(comic);
+
+        ChapterPageParser chapterPageParser = new Mh160ChapterPageParser();
+        XxlCrawlerUtil.Crawle(true,false,1,chapterPageParser ,url);
+        List<Chapter> chapterListList = chapterPageParser.getChapterListList();
+        List<String> list = new ArrayList<>();
+        for (int i = 0; i < chapterListList.size(); i++) {
+            Chapter chapter = chapterListList.get(0);
+            System.out.println(chapter);
+            list.add(chapter.getChapterurl());
+        }
+
+        ChapterImgPageParser chapterImgPageParser = new Mh160ChapterImgPageParser();
+        String[] urls=list.toArray(new String[list.size()]);
+        XxlCrawlerUtil.Crawle(true,false,1,chapterImgPageParser,urls);
+        ChapterImg chapterImg = chapterImgPageParser.getChapterImg();
+        System.out.println(chapterImg);
+
     }
     /**
      * mh160_1 多个漫画pojo爬虫
@@ -68,7 +97,6 @@ public class Mh160Util {
         // 启动
         crawler.start(true);
         List<SearchPojo> searchPojoList = searchPageParser.getSearchPojoList();
-        List<String> urlList=new ArrayList<>();
         for (int i = 0; i < searchPojoList.size(); i++) {
             System.out.println(searchPojoList.get(0));
         }

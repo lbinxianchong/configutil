@@ -8,8 +8,10 @@ import org.jsoup.nodes.Element;
 import java.util.ArrayList;
 import java.util.List;
 
-//搜索处理
-public class SearchPageParser <T extends SearchPojo> extends PageParser <T> {
+/**
+ * 搜索处理
+ */
+public class SearchPageParser<T extends SearchPojo> extends PageParser<T> {
     private List<SearchPojo> searchPojoList = new ArrayList<>();
 
     @Override
@@ -24,6 +26,5 @@ public class SearchPageParser <T extends SearchPojo> extends PageParser <T> {
     public void setSearchPojoList(List<SearchPojo> searchPojoList) {
         this.searchPojoList = searchPojoList;
     }
-
 
 }
