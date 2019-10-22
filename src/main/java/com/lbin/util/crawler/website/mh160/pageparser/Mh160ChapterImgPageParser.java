@@ -1,7 +1,8 @@
 package com.lbin.util.crawler.website.mh160.pageparser;
 
 //import com.xianchong.privatespace_root.helper.CrawlerHelper;
-import com.lbin.util.crawler.website.mh160_1.Mh160ChapterImg;
+
+import com.lbin.util.crawler.website.mh160.model.Mh160ChapterImg;
 import com.xuxueli.crawler.parser.PageParser;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;

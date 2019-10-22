@@ -8,29 +8,32 @@ import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
+import static com.xuxueli.crawler.conf.XxlCrawlerConf.SelectType.ATTR;
+
 //搜索url对象实体
 @Data
 @EqualsAndHashCode(callSuper = true)
-@PageSelect(cssQuery = ".mh-search-result > ul > li")
+//@PageSelect(cssQuery = ".mh-search-result > ul > li")
+@PageSelect(cssQuery = "ul > li")
 public class Mh160Search extends SearchPojo implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
      * 漫画url
      */
-    @PageFieldSelect(cssQuery = ".mh-works-info > div > h4 > a")
+    @PageFieldSelect(cssQuery = ".mh-works-info > div > h4 > a",selectType =ATTR,selectVal = "href")
     private String url;
 
     /**
      * 漫画标题
      */
     @PageFieldSelect(cssQuery = ".mh-works-info > div > h4 > a")
-    private String title;
+    private String name;
 
     /**
      * 漫画封面图片url
      */
-    @PageFieldSelect(cssQuery = ".mh-worksbox > div > div > a > img")
+    @PageFieldSelect(cssQuery = ".mh-worksbox > div > div > a > img",selectType =ATTR,selectVal = "src")
     private String urlimg;
 
     /**

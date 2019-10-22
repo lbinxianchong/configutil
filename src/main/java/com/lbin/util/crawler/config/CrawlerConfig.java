@@ -6,7 +6,9 @@ public interface CrawlerConfig {
 
     String PhantomjsPATH="phantomjspath";
 
-    String Mh160ComicPATH="com.lbin.util.crawler.website.mh160_1";
+    String Mh160ComicPATH="";
+
+    String Mh160SearchPATH="SearchPATH.Mh160";
 
 
 

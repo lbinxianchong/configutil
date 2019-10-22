@@ -65,29 +65,8 @@ public class Comic {
      */
     private List<String> chaptername;
 
-    /*public ComicPojo getComicPojo(){
-        ComicPojo comicPojo = new ComicPojo();
-        comicPojo.setTitle(getComictitle());
-        comicPojo.setAuthor(getAuthor().toString());
-        comicPojo.setCategory(getCategory().toString());
-        comicPojo.setIntroduction(getIntroduction());
-
-        return comicPojo;
-    }*/
 
     public Comic getComic(){
-        /*Comic comic =new Comic();
-        comic.setComicurl(getComicurl());
-        comic.setComicname(getComicname());
-        comic.setCoverurlimg(getCoverurlimg());
-        comic.setCoverimg(getCoverimg());
-        comic.setAuthor(getAuthor());
-        comic.setCategory(getCategory());
-        comic.setIntroduction(getIntroduction());
-        comic.setChapter(getChapter());
-        comic.setChapterurl(getChapterurl());
-        comic.setChaptername(getChaptername());*/
-
 
         Comic comic =new Comic();
         comic.setComicurl(ModelUtil.ToString(getComicurl()));
@@ -97,7 +76,7 @@ public class Comic {
         comic.setAuthor(ModelUtil.ToListString(getAuthor()));
         comic.setCategory(ModelUtil.ToListString(getCategory()));
         comic.setIntroduction(ModelUtil.ToString(getIntroduction()));
-        comic.setChapter(getChapter());
+//        comic.setChapter(getChapter());
         comic.setChapterurl(ModelUtil.ToListString(getChapterurl()));
         comic.setChaptername(ModelUtil.ToListString(getChaptername()));
 

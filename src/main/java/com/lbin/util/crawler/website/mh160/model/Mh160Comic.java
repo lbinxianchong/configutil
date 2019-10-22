@@ -15,7 +15,7 @@ import java.util.List;
 
 //漫画url实体
 @Data
-public class Mh160Comic implements Serializable {
+public class Mh160Comic extends Comic implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -60,7 +60,7 @@ public class Mh160Comic implements Serializable {
     @PageFieldSelect(cssQuery = "#mh-chapter-list-ol-0 > li > a ")
     private List<String> chapterurl;
 
-    public Comic getComic(){
+    /*public Comic getComic(){
 
         Comic comic =new Comic();
         comic.setComicurl(ModelUtil.ToString());
@@ -75,5 +75,5 @@ public class Mh160Comic implements Serializable {
         comic.setChaptername(ModelUtil.ToListString(null));
 
         return comic;
-    }
+    }*/
 }

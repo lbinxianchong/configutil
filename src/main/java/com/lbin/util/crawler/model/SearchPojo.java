@@ -1,5 +1,6 @@
 package com.lbin.util.crawler.model;
 
+import com.lbin.util.crawler.util.ModelUtil;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -16,7 +17,7 @@ public class SearchPojo implements Serializable {
     /**
      * 漫画标题
      */
-    private String title;
+    private String name;
 
     /**
      * 漫画封面图片url
@@ -27,4 +28,14 @@ public class SearchPojo implements Serializable {
      * 漫画最后章节
      */
     private String chapterlast;
+
+
+    public SearchPojo getSearch(){
+        SearchPojo search = new SearchPojo();
+        search.setUrl(ModelUtil.ToString(getUrl()));
+        search.setName(ModelUtil.ToString(getName()));
+        search.setUrlimg(ModelUtil.ToString(getUrlimg()));
+        search.setChapterlast(ModelUtil.ToString(getChapterlast()));
+        return search;
+    }
 }

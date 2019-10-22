@@ -2,7 +2,6 @@ package com.lbin.util.crawler.util;
 
 import com.geccocrawler.gecco.GeccoEngine;
 import com.lbin.util.crawler.model.SearchPojo;
-import com.lbin.util.crawler.website.mh160_1.SearchConsolePipeline;
 
 import java.util.List;
 
@@ -53,15 +52,16 @@ public class GeccoUtil {
      * @param classpath
      * @return
      */
-    public static List<SearchPojo> SearchByUrlCrawler(String url, String classpath) {
+    /*public static List<SearchPojo> SearchByUrlCrawler(String url, String classpath) {
         GeccoEngine.create()
                 .classpath(classpath)
                 .start(url)
                 .thread(1)
                 .interval(2000)
                 .run();
-        return SearchConsolePipeline.searchPojoList;
-    }
+        return new List<SearchPojo>() {
+        }
+    }*/
 
 
 

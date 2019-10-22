@@ -12,11 +12,6 @@ public class Chapter implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
-     * 章节url
-     */
-    private String chapterurl;
-
-    /**
      * 漫画名字
      */
     private String comicname;
@@ -27,29 +22,9 @@ public class Chapter implements Serializable {
     private String chaptername;
 
     /**
-     * 图片地址
+     * 章节url
      */
-    private String imgurl;
-
-    /**
-     * 图片地址List
-     */
-    private List<String> imgurlList;
-
-    /**
-     * 章节图片数量
-     */
-    private Integer number;
-
-    /**
-     * 章节排序
-     */
-    private Integer indexno;
-
-    /**
-     * 漫画id
-     */
-    private Long pojpid;
+    private String chapterurl;
 
 
 }
