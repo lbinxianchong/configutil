@@ -17,6 +17,7 @@ import com.lbin.util.crawler.website.mh160.pageparser.Mh160ComicPageParser;
 import com.lbin.util.crawler.website.mh160.pageparser.Mh160SearchPageParser;
 import com.xuxueli.crawler.XxlCrawler;
 import com.xuxueli.crawler.loader.strategy.HtmlUnitPageLoader;
+import com.xuxueli.crawler.loader.strategy.JsoupPageLoader;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -75,8 +76,8 @@ public class Mh160Util {
      */
     public static List<SearchPojo> Mh160SearchByUrlCrawlerXXL(String search, int page) {
         String url =CrawlerConfig.Mh160SearchPATH+"?key="+search+"&page="+page;
-        Mh160SearchPageParser searchPageParser=new Mh160SearchPageParser();
-        XxlCrawlerUtil.SingleCrawle(true,url,new HtmlUnitPageLoader(),searchPageParser);
+        SearchPageParser searchPageParser=new Mh160SearchPageParser();
+        XxlCrawlerUtil.Crawle(true,false,1,new JsoupPageLoader(),searchPageParser,url);
         return searchPageParser.getSearchPojoList();
     }
 
@@ -85,7 +86,7 @@ public class Mh160Util {
 
 
 //        List<SearchPojo> pojos = Mh160SearchByUrlCrawlerXXL("世界",1);
-        String url ="https://www.mh160.co/statics/search.aspx?key=智能&page=1";
+   /*     String url ="https://www.mh160.co/statics/search.aspx?key=智能&page=1";
         SearchPageParser searchPageParser=new Mh160SearchPageParser();
         // 构造爬虫
         XxlCrawler crawler = new XxlCrawler.Builder()
@@ -98,10 +99,14 @@ public class Mh160Util {
         crawler.start(true);
         List<SearchPojo> searchPojoList = searchPageParser.getSearchPojoList();
         for (int i = 0; i < searchPojoList.size(); i++) {
-            System.out.println(searchPojoList.get(0));
-        }
+            System.out.println(searchPojoList.get(i));
+        }*/
 
-//        Mh160ComicByUrlCrawler(urlList);
+
+        List<SearchPojo> searchPojoList = Mh160SearchByUrlCrawlerXXL("世界",1);
+        for (int i = 0; i < searchPojoList.size(); i++) {
+            System.out.println(searchPojoList.get(i));
+        }
     }
 
 

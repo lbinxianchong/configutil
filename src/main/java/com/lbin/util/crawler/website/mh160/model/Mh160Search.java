@@ -13,8 +13,7 @@ import static com.xuxueli.crawler.conf.XxlCrawlerConf.SelectType.ATTR;
 //搜索url对象实体
 @Data
 @EqualsAndHashCode(callSuper = true)
-//@PageSelect(cssQuery = ".mh-search-result > ul > li")
-@PageSelect(cssQuery = "ul > li")
+@PageSelect(cssQuery = ".mh-search-result > ul > li")
 public class Mh160Search extends SearchPojo implements Serializable {
     private static final long serialVersionUID = 1L;
 
