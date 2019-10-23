@@ -11,6 +11,8 @@ public interface CrawlerConfig {
 //    String Mh160SearchPATH="SearchPATH.Mh160";
     String Mh160SearchPATH="https://www.mh160.co/statics/search.aspx";
 
+    String Mh160PATH="https://www.mh160.co";
+
 
 
 }

@@ -6,17 +6,24 @@ import com.xuxueli.crawler.parser.PageParser;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 /**
  * 漫画图片处理
  */
 public class ChapterImgPageParser<T extends ChapterImg> extends PageParser <T> {
     private ChapterImg chapterImg = new ChapterImg();
+    private List<ChapterImg> chapterImgList = new ArrayList<>();
 
     @Override
     public void parse(Document document, Element element, T t) {
-        this.chapterImg=t;
-        this.chapterImg.setChapterimgurl(document.baseUri());
+        if (chapterImgList.size()<=0){
+            this.chapterImg=t;
+            this.chapterImg.setChapterimgurl(document.baseUri());
+        }
+        chapterImgList.add(t);
     }
 
     public ChapterImg getChapterImg() {
@@ -25,5 +32,13 @@ public class ChapterImgPageParser<T extends ChapterImg> extends PageParser <T> {
 
     public void setChapterImg(ChapterImg chapterImg) {
         this.chapterImg = chapterImg;
+    }
+
+    public List<ChapterImg> getChapterImgList() {
+        return chapterImgList;
+    }
+
+    public void setChapterImgList(List<ChapterImg> chapterImgList) {
+        this.chapterImgList = chapterImgList;
     }
 }

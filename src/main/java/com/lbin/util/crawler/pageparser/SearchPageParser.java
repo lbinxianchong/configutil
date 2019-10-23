@@ -2,8 +2,11 @@ package com.lbin.util.crawler.pageparser;
 
 import com.lbin.util.crawler.model.SearchPojo;
 import com.xuxueli.crawler.parser.PageParser;
+import org.apache.http.HttpRequest;
+import org.jsoup.helper.StringUtil;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;

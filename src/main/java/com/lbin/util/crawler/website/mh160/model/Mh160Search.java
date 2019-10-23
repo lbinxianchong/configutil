@@ -3,12 +3,14 @@ package com.lbin.util.crawler.website.mh160.model;
 import com.lbin.util.crawler.model.SearchPojo;
 import com.xuxueli.crawler.annotation.PageFieldSelect;
 import com.xuxueli.crawler.annotation.PageSelect;
+import com.xuxueli.crawler.conf.XxlCrawlerConf;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.io.Serializable;
 
-import static com.xuxueli.crawler.conf.XxlCrawlerConf.SelectType.ATTR;
+import static com.xuxueli.crawler.conf.XxlCrawlerConf.SelectType.*;
+
 
 //搜索url对象实体
 @Data
@@ -20,7 +22,7 @@ public class Mh160Search extends SearchPojo implements Serializable {
     /**
      * 漫画url
      */
-    @PageFieldSelect(cssQuery = ".mh-works-info > div > h4 > a",selectType =ATTR,selectVal = "href")
+    @PageFieldSelect(cssQuery = ".mh-works-info > div > h4 > a",selectType = ATTR,selectVal = "abs:href")
     private String url;
 
     /**
@@ -32,7 +34,7 @@ public class Mh160Search extends SearchPojo implements Serializable {
     /**
      * 漫画封面图片url
      */
-    @PageFieldSelect(cssQuery = ".mh-worksbox > div > div > a > img",selectType =ATTR,selectVal = "src")
+    @PageFieldSelect(cssQuery = ".mh-worksbox > div > div > a > img",selectType = ATTR,selectVal = "abs:src")
     private String urlimg;
 
     /**

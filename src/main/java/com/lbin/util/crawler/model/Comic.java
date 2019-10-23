@@ -4,6 +4,7 @@ package com.lbin.util.crawler.model;
 import com.lbin.util.crawler.util.ModelUtil;
 import lombok.Data;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -39,23 +40,13 @@ public class Comic {
      * 漫画介绍
      */
     private String introduction;
-/*
-    *//**
+
+    /**
      * 漫画章节实体
-     *//*
+     */
     private List<Chapter> chapter;
 
-    *//**
-     * 漫画章节url
-     *//*
-    private List<String> chapterurl;
-
-    *//**
-     * 漫画章节名字
-     *//*
-    private List<String> chaptername;
-
-
+/*
     public Comic getComic(){
 
         Comic comic =new Comic();
@@ -66,11 +57,17 @@ public class Comic {
         comic.setCategory(ModelUtil.ToListString(getCategory()));
         comic.setIntroduction(ModelUtil.ToString(getIntroduction()));
 //        comic.setChapter(getChapter());
-        comic.setChapterurl(ModelUtil.ToListString(getChapterurl()));
-        comic.setChaptername(ModelUtil.ToListString(getChaptername()));
 
         return comic;
     }*/
+
+    public List<String> getChapterUrl(){
+        List<String> list=new ArrayList<>();
+        for (int i = 0; i < chapter.size(); i++) {
+            list.add(chapter.get(i).getChapterurl());
+        }
+        return list;
+    }
 
 
 }

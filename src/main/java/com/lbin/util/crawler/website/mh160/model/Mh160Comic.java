@@ -14,6 +14,8 @@ import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.List;
 
+import static com.xuxueli.crawler.conf.XxlCrawlerConf.SelectType.ATTR;
+
 //漫画url实体
 @Data
 @EqualsAndHashCode(callSuper = true)
@@ -29,9 +31,8 @@ public class Mh160Comic extends Comic implements Serializable {
     /**
      * 漫画封面图片url
      */
-    @PageFieldSelect(cssQuery = ".mh-date-bgpic > a > img")
-    private String coverurlimg;
-
+    @PageFieldSelect(cssQuery = ".mh-date-bgpic > a > img",selectType = ATTR,selectVal = "abs:src")
+    private String coverimgurl;
 
     /**
      * 漫画作者
@@ -51,10 +52,5 @@ public class Mh160Comic extends Comic implements Serializable {
     @PageFieldSelect(cssQuery = "#workint > p")
     private String introduction;
 
-    /**
-     * 漫画章节url
-     */
-    /*@PageFieldSelect(cssQuery = "#mh-chapter-list-ol-0 > li > a ")
-    private List<String> chapterurl;*/
 
 }
