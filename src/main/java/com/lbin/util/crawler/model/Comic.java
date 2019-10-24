@@ -27,6 +27,11 @@ public class Comic {
     private String coverimgurl;
 
     /**
+     * 漫画封面图片本地
+     */
+    private String coverimglocal;
+
+    /**
      * 漫画作者
      */
     private List<String> author;

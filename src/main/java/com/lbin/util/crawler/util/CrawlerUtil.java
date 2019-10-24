@@ -12,6 +12,7 @@ import com.lbin.util.crawler.pageparser.SearchPageParser;
 import com.xuxueli.crawler.parser.PageParser;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -78,6 +79,25 @@ public class CrawlerUtil {
         List<ChapterImg> chapterImgList = chapterImgPageParser.getChapterImgList();
         return chapterImgList;
     }
+
+    public static ChapterImg DownloadChapterImg(ChapterImg chapterImg,String type){
+        List<String> imgurls = chapterImg.getImgurls();
+        String imgurl = chapterImg.getImgurl();
+        List<String> imglocals= new ArrayList<>();
+        if (imgurls.size()<=0){
+            imgurls = ModelUtil.ToUrlListString(imgurl, chapterImg.getNumber(), "jpg");
+            if (chapterImg.getImgurl().equals(imgurls.get(0))){
+                imglocals=DownloadUtil.ComicDownload(imgurls,chapterImg.getComicname(),chapterImg.getChaptername(),"jpg");
+            }
+        }else {
+            imglocals=DownloadUtil.ComicDownload(imgurls,chapterImg.getComicname(),chapterImg.getChaptername(),"jpg");
+        }
+        chapterImg.setImglocals(imglocals);
+        return chapterImg;
+    }
+
+
+
 
 
 }

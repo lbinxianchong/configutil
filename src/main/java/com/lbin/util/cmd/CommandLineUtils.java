@@ -1,5 +1,6 @@
 package com.lbin.util.cmd;
 
+import cn.hutool.core.util.RuntimeUtil;
 import org.apache.commons.exec.CommandLine;
 import org.apache.commons.exec.DefaultExecuteResultHandler;
 import org.apache.commons.exec.DefaultExecutor;
@@ -19,12 +20,13 @@ public final class CommandLineUtils {
      * @Description cmd命令行执行
      * @throws Exception 无异常抛出
      */
-    public static void executeCmd(String cmd) throws Exception {
-        CommandLine commandLine = CommandLine.parse(cmd);
+    public static String executeCmd(String cmd) throws Exception {
+        /*CommandLine commandLine = CommandLine.parse(cmd);
         DefaultExecutor executor = new DefaultExecutor();
         DefaultExecuteResultHandler resultHandler = new DefaultExecuteResultHandler();
         executor.execute(commandLine, resultHandler);
-        resultHandler.waitFor();
+        resultHandler.waitFor();*/
+        return RuntimeUtil.execForStr(cmd);
     }
 
 }

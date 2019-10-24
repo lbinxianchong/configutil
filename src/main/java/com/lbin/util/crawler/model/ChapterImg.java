@@ -37,6 +37,11 @@ public class ChapterImg implements Serializable {
     private List<String> imgurls;
 
     /**
+     * 漫画url
+     */
+    private List<String> imglocals;
+
+    /**
      * 漫画数量
      */
     private int number;

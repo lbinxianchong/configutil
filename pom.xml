@@ -24,12 +24,13 @@
             <version>RELEASE</version>
         </dependency>
 
+        <!--已废弃-->
         <!--cmd命令行 commons-exec插件-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-exec</artifactId>
             <version>${commonsExecVersion}</version>
-        </dependency>
+        </dependency>-->
         <!--<dependency>
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
@@ -49,9 +50,6 @@
             <version>1.7.2</version>
         </dependency>-->
 
-
-
-
         <!--数据库jdbc-->
         <dependency>
             <groupId>mysql</groupId>
@@ -64,13 +62,14 @@
             <version>0.9.1.2</version>
         </dependency>
 
-
+        <!--更好更强更适用工具类-->
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
             <version>4.6.10</version>
         </dependency>
 
+        <!--汉族转换大小写-->
         <dependency>
             <groupId>com.belerweb</groupId>
             <artifactId>pinyin4j</artifactId>
@@ -78,6 +77,9 @@
         </dependency>
 
 
+        <!-- ============================爬虫用依赖start=============================-->
+
+        <!--已经没有业务用到，半废弃-->
         <!--爬虫-->
         <!--gecco-->
         <dependency>
@@ -120,6 +122,8 @@
             <version>${phantomjs.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- ============================爬虫用依赖start=============================-->
 
         <!--lombok-->
         <dependency>
