@@ -4,8 +4,7 @@ import com.lbin.util.crawler.model.SearchPojo;
 import com.xuxueli.crawler.annotation.PageFieldSelect;
 import com.xuxueli.crawler.annotation.PageSelect;
 import com.xuxueli.crawler.conf.XxlCrawlerConf;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import java.io.Serializable;
 
@@ -13,7 +12,9 @@ import static com.xuxueli.crawler.conf.XxlCrawlerConf.SelectType.*;
 
 
 //搜索url对象实体
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 @PageSelect(cssQuery = ".mh-search-result > ul > li")
 public class Mh160Search extends SearchPojo implements Serializable {

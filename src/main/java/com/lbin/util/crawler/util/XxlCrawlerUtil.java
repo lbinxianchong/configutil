@@ -17,7 +17,7 @@ public class XxlCrawlerUtil {
     //支持动态js
     private static PageLoader htmlUnitPageLoader=new HtmlUnitPageLoader();
     //支持动态js，需要插件Phantomjs
-//    private static PageLoader seleniumPhantomjsPageLoader=new SeleniumPhantomjsPageLoader(CrawlerConfig.PhantomjsPATH);
+    private static PageLoader seleniumPhantomjsPageLoader=new SeleniumPhantomjsPageLoader(CrawlerConfig.PhantomjsPATH);
 
 
     /**
@@ -63,7 +63,7 @@ public class XxlCrawlerUtil {
      * @param pageParser
      */
     public static void SeleniumPhantomjsCrawle(boolean sync,String url,PageParser pageParser) {
-//        singleCrawle(sync,url,seleniumPhantomjsPageLoader,pageParser);
+        singleCrawle(sync,url,seleniumPhantomjsPageLoader,pageParser);
     }
 
     /**
@@ -73,7 +73,7 @@ public class XxlCrawlerUtil {
      */
 
     public static void SeleniumPhantomjsCrawle(boolean sync,List<String> urlList, PageParser pageParser) {
-//        singleCrawle(sync,urlList,seleniumPhantomjsPageLoader,pageParser);
+        singleCrawle(sync,urlList,seleniumPhantomjsPageLoader,pageParser);
     }
 
     /**

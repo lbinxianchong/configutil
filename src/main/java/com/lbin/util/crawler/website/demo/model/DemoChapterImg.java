@@ -2,8 +2,7 @@ package com.lbin.util.crawler.website.demo.model;
 
 import com.lbin.util.crawler.model.ChapterImg;
 import com.xuxueli.crawler.annotation.PageFieldSelect;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,7 +10,9 @@ import java.util.List;
 import static com.xuxueli.crawler.conf.XxlCrawlerConf.SelectType.ATTR;
 
 //章节url实体
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class DemoChapterImg extends ChapterImg implements Serializable {
     private static final long serialVersionUID = 1L;

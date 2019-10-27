@@ -51,20 +51,8 @@ public class Comic {
      */
     private List<Chapter> chapter;
 
-/*
-    public Comic getComic(){
 
-        Comic comic =new Comic();
-        comic.setComicurl(ModelUtil.ToString(getComicurl()));
-        comic.setComicname(ModelUtil.ToString(getComicname()));
-        comic.setCoverimgurl(ModelUtil.ToString(getCoverimgurl()));
-        comic.setAuthor(ModelUtil.ToListString(getAuthor()));
-        comic.setCategory(ModelUtil.ToListString(getCategory()));
-        comic.setIntroduction(ModelUtil.ToString(getIntroduction()));
-//        comic.setChapter(getChapter());
 
-        return comic;
-    }*/
 
     public List<String> getChapterUrl(){
         List<String> list=new ArrayList<>();
@@ -73,6 +61,5 @@ public class Comic {
         }
         return list;
     }
-
 
 }

@@ -84,7 +84,7 @@ public class CrawlerUtil {
         List<String> imgurls = chapterImg.getImgurls();
         String imgurl = chapterImg.getImgurl();
         List<String> imglocals= new ArrayList<>();
-        if (imgurls.size()<=0){
+        if (imgurls ==null){
             imgurls = ModelUtil.ToUrlListString(imgurl, chapterImg.getNumber(), "jpg");
             if (chapterImg.getImgurl().equals(imgurls.get(0))){
                 imglocals=DownloadUtil.ComicDownload(imgurls,chapterImg.getComicname(),chapterImg.getChaptername(),"jpg");

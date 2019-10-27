@@ -12,9 +12,9 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <jodconverterVersion>4.2.2</jodconverterVersion>
         <commonsExecVersion>1.3</commonsExecVersion>
-        <htmlunit.version>2.24</htmlunit.version>
+        <htmlunit.version>2.36.0</htmlunit.version>
         <selenium-java.version>2.53.1</selenium-java.version>
-        <phantomjs.version>1.3.0</phantomjs.version>
+        <phantomjs.version>1.4.4</phantomjs.version>
     </properties>
 
     <dependencies>
@@ -105,15 +105,16 @@
             <groupId>net.sourceforge.htmlunit</groupId>
             <artifactId>htmlunit</artifactId>
             <version>${htmlunit.version}</version>
+            <scope>provided</scope>
         </dependency>
 
         <!-- selenium -->
-        <dependency>
+        <!--<dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${selenium-java.version}</version>
             <scope>provided</scope>
-        </dependency>
+        </dependency>-->
 
         <!-- phantomjs -->
         <dependency>

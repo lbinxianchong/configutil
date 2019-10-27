@@ -7,8 +7,7 @@ import com.lbin.util.ConfigProperties;
 import com.lbin.util.crawler.model.Comic;
 import com.lbin.util.crawler.util.ModelUtil;
 import com.xuxueli.crawler.annotation.PageFieldSelect;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import java.io.Serializable;
 import java.lang.reflect.Field;
@@ -17,7 +16,9 @@ import java.util.List;
 import static com.xuxueli.crawler.conf.XxlCrawlerConf.SelectType.ATTR;
 
 //漫画url实体
-@Data
+@Getter
+@Setter
+@RequiredArgsConstructor
 @EqualsAndHashCode(callSuper = true)
 public class Mh160Comic extends Comic implements Serializable {
     private static final long serialVersionUID = 1L;

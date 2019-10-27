@@ -34,7 +34,7 @@ public class PageParserConfig {
 
     public SearchPageParser getSearchPageParser() {
         try {
-            return searchPageParser.newInstance();
+            return searchPageParser.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -47,7 +47,7 @@ public class PageParserConfig {
 
     public ComicPageParser getComicPageParser() {
         try {
-            return comicPageParser.newInstance();
+            return comicPageParser.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -60,7 +60,7 @@ public class PageParserConfig {
 
     public ChapterPageParser getChapterPageParser() {
         try {
-            return chapterPageParser.newInstance();
+            return chapterPageParser.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -73,7 +73,7 @@ public class PageParserConfig {
 
     public ChapterImgPageParser getChapterImgPageParser() {
         try {
-            return chapterImgPageParser.newInstance();
+            return chapterImgPageParser.getDeclaredConstructor().newInstance();
         } catch (Exception e) {
             e.printStackTrace();
             return null;

@@ -13,7 +13,7 @@ public class test {
     public static void main(String[] args) {
 
     }
-    @Test
+    /*@Test
     private static void testAll1() {
 
         long start = System.currentTimeMillis();
@@ -55,9 +55,9 @@ public class test {
         //共耗时649
     }
     @Test
-    /**
+    *//**
      * 测试插入
-     */
+     *//*
     private static void testInsert() {
         Map<String, Object> map = new HashMap<>();
         map.put("emp_id", 1013);
@@ -73,9 +73,9 @@ public class test {
     }
 
     @Test
-    /**
+    *//**
      * 测试更新
-     */
+     *//*
     private static void testUpdate() {
         Map<String, Object> map = new HashMap<>();
         map.put("name", "测试更新");
@@ -89,9 +89,9 @@ public class test {
         }
     }
     @Test
-    /**
+    *//**
      * 测试删除
-     */
+     *//*
     private static void testDelete() {
         Map<String, Object> whereMap = new HashMap<>();
         whereMap.put("emp_id", 1013);
@@ -103,9 +103,9 @@ public class test {
         }
     }
     @Test
-    /**
+    *//**
      * 查询方式一
-     */
+     *//*
     public static void testQuery1() {
         Map<String, Object> whereMap = new HashMap<>();
         whereMap.put("salary", "10000");
@@ -116,9 +116,9 @@ public class test {
         }
     }
     @Test
-    /**
+    *//**
      * 查询方式二
-     */
+     *//*
     public static void testQuery2() {
         String where = "job = ?  AND salary = ? ";
         String[] whereArgs = new String[]{"clerk", "3000"};
@@ -131,9 +131,9 @@ public class test {
         }
     }
     @Test
-    /**
+    *//**
      * 查询方式三
-     */
+     *//*
     public static void testQuery3() {
         try {
             List<Map<String, Object>> list = JDBCUtil.query("emp_test", false, null, null, null, null, null, null, null);
@@ -143,9 +143,9 @@ public class test {
         }
     }
     @Test
-    /**
+    *//**
      * SQL注入问题
-     */
+     *//*
     public static void query4() {
         String name = "'1' OR '1'='1'";
         String password = "'1' OR '1'='1'";
@@ -161,5 +161,5 @@ public class test {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
+    }*/
 }
