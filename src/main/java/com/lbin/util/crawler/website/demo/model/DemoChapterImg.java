@@ -20,19 +20,19 @@ public class DemoChapterImg extends ChapterImg implements Serializable {
     /**
      * 漫画名字
      */
-    @PageFieldSelect(cssQuery = ".w996.title.pr > h1 > a")
+    @PageFieldSelect(cssQuery = "")
     private String comicname;
 
     /**
      * 章节名字
      */
-    @PageFieldSelect(cssQuery = ".w996.title.pr > h2")
+    @PageFieldSelect(cssQuery = "")
     private String chaptername;
 
     /**
      * 漫画url
      */
-    @PageFieldSelect(cssQuery = "#qTcms_pic",selectType =ATTR,selectVal = "abs:src")
+    @PageFieldSelect(cssQuery = "",selectType =ATTR,selectVal = "abs:src")
     private String imgurl;
 
     /**

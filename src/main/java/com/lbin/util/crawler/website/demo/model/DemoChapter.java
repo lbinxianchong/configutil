@@ -14,20 +14,20 @@ import static com.xuxueli.crawler.conf.XxlCrawlerConf.SelectType.ATTR;
 @Setter
 @RequiredArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@PageSelect(cssQuery = "#mh-chapter-list-ol-0 > li")
+@PageSelect(cssQuery = "")
 public class DemoChapter extends Chapter implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
      * 章节url
      */
-    @PageFieldSelect(cssQuery = "a",selectType = ATTR,selectVal = "abs:href")
+    @PageFieldSelect(cssQuery = "",selectType = ATTR,selectVal = "abs:href")
     private String chapterurl;
 
     /**
      * 章节名字
      */
-    @PageFieldSelect(cssQuery = "a")
+    @PageFieldSelect(cssQuery = "")
     private String chaptername;
 
 

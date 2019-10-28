@@ -15,31 +15,31 @@ import static com.xuxueli.crawler.conf.XxlCrawlerConf.SelectType.ATTR;
 @Setter
 @RequiredArgsConstructor
 @EqualsAndHashCode(callSuper = true)
-@PageSelect(cssQuery = ".mh-search-result > ul > li")
+@PageSelect(cssQuery = "")
 public class DemoSearch extends SearchPojo implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
      * 漫画url
      */
-    @PageFieldSelect(cssQuery = ".mh-works-info > div > h4 > a",selectType = ATTR,selectVal = "abs:href")
+    @PageFieldSelect(cssQuery = "",selectType = ATTR,selectVal = "abs:href")
     private String url;
 
     /**
      * 漫画标题
      */
-    @PageFieldSelect(cssQuery = ".mh-works-info > div > h4 > a")
+    @PageFieldSelect(cssQuery = "")
     private String name;
 
     /**
      * 漫画封面图片url
      */
-    @PageFieldSelect(cssQuery = ".mh-worksbox > div > div > a > img",selectType = ATTR,selectVal = "abs:src")
+    @PageFieldSelect(cssQuery = "",selectType = ATTR,selectVal = "abs:src")
     private String urlimg;
 
     /**
      * 漫画最后章节
      */
-    @PageFieldSelect(cssQuery = ".mh-worksbox > div > p > a > span")
+    @PageFieldSelect(cssQuery = "")
     private String chapterlast;
 }

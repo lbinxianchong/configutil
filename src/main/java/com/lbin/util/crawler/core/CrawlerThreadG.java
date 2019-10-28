@@ -1,6 +1,7 @@
 package com.lbin.util.crawler.core;
 
-import com.xuxueli.crawler.XxlCrawler;
+import com.lbin.util.crawler.core.select.FieldSelect;
+import com.lbin.util.crawler.core.select.SelectPojo;
 import com.xuxueli.crawler.annotation.PageFieldSelect;
 import com.xuxueli.crawler.annotation.PageSelect;
 import com.xuxueli.crawler.conf.XxlCrawlerConf;
@@ -22,10 +23,7 @@ import java.lang.reflect.Modifier;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.net.Proxy;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -36,10 +34,10 @@ import java.util.concurrent.TimeUnit;
 public class CrawlerThreadG extends CrawlerThread {
     private static Logger logger = LoggerFactory.getLogger(CrawlerThreadG.class);
 
-    private XxlCrawler crawler;
+    private XxlCrawlerG crawler;
     private boolean running;
     private boolean toStop;
-    public CrawlerThreadG(XxlCrawler crawler) {
+    public CrawlerThreadG(XxlCrawlerG crawler) {
         super(crawler);
         this.crawler = crawler;
         this.running = true;
@@ -198,8 +196,23 @@ public class CrawlerThreadG extends CrawlerThread {
             pageVoClassType = (Class) pageVoClassTypes[0];
         }
 
-        PageSelect pageVoSelect = (PageSelect) pageVoClassType.getAnnotation(PageSelect.class);
-        String pageVoCssQuery = (pageVoSelect!=null && pageVoSelect.cssQuery()!=null && pageVoSelect.cssQuery().trim().length()>0)?pageVoSelect.cssQuery():"html";
+        //经过修改----动态赋值
+        SelectPojo selectPojo = crawler.getSelectPojo();
+
+        String pageVoCssQuery = "html";
+        if (selectPojo.getLevel()>0&&selectPojo!=null){
+            String pageSelect = selectPojo.getPageSelect();
+            if (pageSelect!=null&&pageSelect!=""){
+                pageVoCssQuery = pageSelect;
+            }else {
+                pageVoCssQuery = "html";
+            }
+        }else {
+            PageSelect pageVoSelect = (PageSelect) pageVoClassType.getAnnotation(PageSelect.class);
+            pageVoCssQuery = (pageVoSelect!=null && pageVoSelect.cssQuery()!=null && pageVoSelect.cssQuery().trim().length()>0)?pageVoSelect.cssQuery():"html";
+        }
+        //结束
+
 
         // pagevo document 2 object
         Elements pageVoElements = html.select(pageVoCssQuery);
@@ -216,17 +229,38 @@ public class CrawlerThreadG extends CrawlerThread {
                             continue;
                         }
 
-
+                        //--------------------经过修改，动态赋值
                         // field origin value
-                        PageFieldSelect fieldSelect = field.getAnnotation(PageFieldSelect.class);
+                        String name = field.getName();
                         String cssQuery = null;
                         XxlCrawlerConf.SelectType selectType = null;
                         String selectVal = null;
-                        if (fieldSelect != null) {
-                            cssQuery = fieldSelect.cssQuery();
-                            selectType = fieldSelect.selectType();
-                            selectVal = fieldSelect.selectVal();
+
+                        if (selectPojo.getLevel()>0&&selectPojo!=null){
+                            FieldSelect fieldSelects = selectPojo.getFieldSelectList().get(name);
+                            if (selectPojo.getLevel()>1){
+                                cssQuery = fieldSelects.getCssQuery();
+                                selectType = fieldSelects.getSelectType();
+                                selectVal = fieldSelects.getSelectVal();
+                            }else {
+                                PageFieldSelect fieldSelect = field.getAnnotation(PageFieldSelect.class);
+                                cssQuery=fieldSelects.getCssQuery();
+                                if (fieldSelect != null) {
+                                    selectType = fieldSelect.selectType();
+                                    selectVal = fieldSelect.selectVal();
+                                }
+                            }
+                        }else {
+                            PageFieldSelect fieldSelect = field.getAnnotation(PageFieldSelect.class);
+                            if (fieldSelect != null) {
+                                cssQuery = fieldSelect.cssQuery();
+                                selectType = fieldSelect.selectType();
+                                selectVal = fieldSelect.selectVal();
+                            }
                         }
+
+                        //------------结束
+
                         if (cssQuery==null || cssQuery.trim().length()==0) {
                             continue;
                         }

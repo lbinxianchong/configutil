@@ -20,13 +20,13 @@ public class DemoComic extends Comic implements Serializable {
     /**
      * 漫画标题
      */
-    @PageFieldSelect(cssQuery = ".mh-date-info-name > h4 > a")
+    @PageFieldSelect(cssQuery = "")
     private String comicname;
 
     /**
      * 漫画封面图片url
      */
-    @PageFieldSelect(cssQuery = ".mh-date-bgpic > a > img",selectType = ATTR,selectVal = "abs:src")
+    @PageFieldSelect(cssQuery = "",selectType = ATTR,selectVal = "abs:src")
     private String coverimgurl;
 
     /**
@@ -44,7 +44,7 @@ public class DemoComic extends Comic implements Serializable {
     /**
      * 漫画介绍
      */
-    @PageFieldSelect(cssQuery = "#workint > p")
+    @PageFieldSelect(cssQuery = "")
     private String introduction;
 
 

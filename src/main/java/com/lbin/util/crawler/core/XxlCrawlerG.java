@@ -1,5 +1,6 @@
 package com.lbin.util.crawler.core;
 
+import com.lbin.util.crawler.core.select.SelectPojo;
 import com.xuxueli.crawler.XxlCrawler;
 import com.xuxueli.crawler.loader.PageLoader;
 import com.xuxueli.crawler.model.RunConf;
@@ -47,6 +48,10 @@ public class XxlCrawlerG extends XxlCrawler {
 
     public RunConf getRunConf() {
         return runConf;
+    }
+
+    public SelectPojo getSelectPojo() {
+        return selectPojo;
     }
 
     // ---------------------- builder ----------------------
