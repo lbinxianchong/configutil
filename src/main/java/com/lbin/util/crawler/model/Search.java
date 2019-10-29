@@ -9,7 +9,7 @@ import java.io.Serializable;
  * 搜索实体
  */
 @Data
-public class SearchPojo implements Serializable {
+public class Search implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -33,8 +33,8 @@ public class SearchPojo implements Serializable {
     private String chapterlast;
 
 
-    public SearchPojo getSearch(){
-        SearchPojo search = new SearchPojo();
+    public Search getSearch(){
+        Search search = new Search();
         search.setUrl(ModelUtil.ToString(getUrl()));
         search.setName(ModelUtil.ToString(getName()));
         search.setUrlimg(ModelUtil.ToString(getUrlimg()));

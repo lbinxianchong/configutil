@@ -1,12 +1,9 @@
 package com.lbin.util.crawler.pageparser;
 
-import com.lbin.util.crawler.model.SearchPojo;
+import com.lbin.util.crawler.model.Search;
 import com.xuxueli.crawler.parser.PageParser;
-import org.apache.http.HttpRequest;
-import org.jsoup.helper.StringUtil;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,20 +11,20 @@ import java.util.List;
 /**
  * 搜索处理
  */
-public class SearchPageParser<T extends SearchPojo> extends PageParser<T> {
-    private List<SearchPojo> searchPojoList = new ArrayList<>();
+public class SearchPageParser extends PageParser<Search> {
+    private List<Search> searchList = new ArrayList<>();
 
     @Override
-    public void parse(Document document, Element element, T t) {
-        searchPojoList.add(t);
+    public void parse(Document document, Element element, Search t) {
+        searchList.add(t);
     }
 
-    public List<SearchPojo> getSearchPojoList() {
-        return searchPojoList;
+    public List<Search> getSearchList() {
+        return searchList;
     }
 
-    public void setSearchPojoList(List<SearchPojo> searchPojoList) {
-        this.searchPojoList = searchPojoList;
+    public void setSearchList(List<Search> searchList) {
+        this.searchList = searchList;
     }
 
 }

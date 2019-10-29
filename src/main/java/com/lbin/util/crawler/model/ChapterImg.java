@@ -14,7 +14,7 @@ public class ChapterImg implements Serializable {
     /**
      * 漫画章节url
      */
-    private String chapterimgurl;
+    private String baseUrl;
 
     /**
      * 漫画名字
@@ -37,7 +37,7 @@ public class ChapterImg implements Serializable {
     private List<String> imgurls;
 
     /**
-     * 漫画url
+     * 漫画本地地址
      */
     private List<String> imglocals;
 

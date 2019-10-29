@@ -1,67 +1,41 @@
 package com.lbin.util.crawler.api;
 
-import com.lbin.util.crawler.config.PageParserConfig;
+import com.lbin.util.crawler.config.CrawlerConfig;
+import com.lbin.util.crawler.core.pageparser.MapPageParser;
+import com.lbin.util.crawler.core.select.Select;
 import com.lbin.util.crawler.model.ChapterImg;
 import com.lbin.util.crawler.model.Comic;
-import com.lbin.util.crawler.model.SearchPojo;
+import com.lbin.util.crawler.model.Search;
 import com.lbin.util.crawler.pageparser.ChapterImgPageParser;
 import com.lbin.util.crawler.pageparser.ChapterPageParser;
 import com.lbin.util.crawler.pageparser.ComicPageParser;
-import com.lbin.util.crawler.util.ConfigUtil;
+import com.lbin.util.crawler.pageparser.SearchPageParser;
 import com.lbin.util.crawler.util.CrawlerUtil;
+import com.lbin.util.crawler.util.XxlCrawlerUtil;
 
 import java.util.List;
+import java.util.Map;
 
 
 public class CrawlerApi {
-
-
-    private PageParserConfig pageParserConfig;
-
-    public CrawlerApi() {
-    }
-
-    public CrawlerApi(PageParserConfig pageParserConfig) {
-        this.pageParserConfig = pageParserConfig;
-    }
-
-    public CrawlerApi(String config) {
-        this.pageParserConfig = ConfigUtil.getConfig(config);
-    }
-
-    public PageParserConfig getPageParserConfig() {
-        return pageParserConfig;
-    }
-
-    public void setPageParserConfig(PageParserConfig pageParserConfig) {
-        this.pageParserConfig = pageParserConfig;
-    }
-
-    public void setPageParserConfig(String config) {
-        this.pageParserConfig = ConfigUtil.getConfig(config);
-    }
 
     /**
      * demo 搜索
      * @param
      * @return
      */
-    public List<SearchPojo> Mh160Search(List<String> list) {
-        String url=pageParserConfig.getSearchPath();
-        for (String s : list) {
-            url = url.replaceFirst("%pram%", s);
-        }
-        return CrawlerUtil.SearchByXXLCrawler(url,pageParserConfig.getSearchPageParser());
+    public static List<Search> Search(String url, Select select) {
+        return CrawlerUtil.SearchByXXLCrawler(url,select,new SearchPageParser());
     }
 
     /**
      * demo 漫画pojo爬虫
      * @param url
      */
-    public Comic Mh160Comic(String url) {
-        ComicPageParser comicPageParser = pageParserConfig.getComicPageParser();
-        ChapterPageParser chapterPageParser = pageParserConfig.getChapterPageParser();
-        Comic comic = CrawlerUtil.ComicByUrlCrawler(url, comicPageParser, chapterPageParser);
+    public static Comic Comic(String url,Select select) {
+        ComicPageParser comicPageParser = new ComicPageParser();
+        ChapterPageParser chapterPageParser = new ChapterPageParser();
+        Comic comic = CrawlerUtil.ComicByUrlCrawler(url, select,comicPageParser, chapterPageParser);
         return comic;
     }
 
@@ -69,12 +43,32 @@ public class CrawlerApi {
      * demo 漫画pojo爬虫
      * @param url
      */
-    public ChapterImg Mh160ChapterImg(String url) {
-        ChapterImgPageParser chapterPageParser = pageParserConfig.getChapterImgPageParser();
-        ChapterImg chapterImg = CrawlerUtil.ChapterImgByUrlCrawler(url, chapterPageParser);
+    public static ChapterImg ChapterImg(String url,Select select) {
+        ChapterImgPageParser chapterPageParser = new ChapterImgPageParser();
+        ChapterImg chapterImg = CrawlerUtil.ChapterImgByUrlCrawler(url, select,chapterPageParser);
         return chapterImg;
     }
 
 
+    public static List<Map<String, Object>> getListMap(String url, Select select){
+        MapPageParser mapPageParser = new MapPageParser();
+        List<Map<String, Object>> maps = CrawlerUtil.ListMapByUrlCrawler(url, select, mapPageParser);
+        return maps;
+    }
+    public static List<Map<String, Object>> getListMap(List<String> list, Select select){
+        MapPageParser mapPageParser = new MapPageParser();
+        List<Map<String, Object>> maps = CrawlerUtil.ListMapByUrlCrawler(list, select, mapPageParser);
+        return maps;
+    }
+    public static Map<String, Object> getMap(String url, Select select){
+        MapPageParser mapPageParser = new MapPageParser();
+        Map<String, Object> map = CrawlerUtil.MapByUrlCrawler(url, select, mapPageParser);
+        return map;
+    }
+    public static Map<String, Object> getMap(List<String> list, Select select){
+        MapPageParser mapPageParser = new MapPageParser();
+        Map<String, Object> map = CrawlerUtil.MapByUrlCrawler(list, select, mapPageParser);
+        return map;
+    }
 
 }

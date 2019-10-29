@@ -11,11 +11,11 @@ import java.util.List;
 /**
  * 章节处理
  */
-public class ChapterPageParser<T extends Chapter> extends PageParser <T> {
+public class ChapterPageParser extends PageParser <Chapter> {
     private List<Chapter> chapterListList = new ArrayList<>();
 
     @Override
-    public void parse(Document document, Element element, T t) {
+    public void parse(Document document, Element element, Chapter t) {
         chapterListList.add(t);
     }
 

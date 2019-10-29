@@ -1,6 +1,8 @@
 package com.lbin.util.crawler.util;
 
 import com.lbin.util.crawler.config.CrawlerConfig;
+import com.lbin.util.crawler.core.XxlCrawlerG;
+import com.lbin.util.crawler.core.select.Select;
 import com.xuxueli.crawler.XxlCrawler;
 import com.xuxueli.crawler.loader.PageLoader;
 import com.xuxueli.crawler.loader.strategy.HtmlUnitPageLoader;
@@ -22,79 +24,36 @@ public class XxlCrawlerUtil {
 
     /**
      * jsoup
-     * @param url
-     * @param pageParser
+     *
      */
-    public static void jsoupCrawle(boolean sync,String url,PageParser pageParser) {
-        singleCrawle(sync,url,jsoupPageLoader,pageParser);
-    }
-
-    /**
-     * jsoup
-     * @param urlList
-     * @param pageParser
-     */
-
-    public static void jsoupCrawle(boolean sync,List<String> urlList, PageParser pageParser) {
-        singleCrawle(sync,urlList,jsoupPageLoader,pageParser);
+    public static void jsoupCrawle(boolean sync,Select select, PageParser pageParser, String... urls) {
+        singleCrawle(sync,select,jsoupPageLoader,pageParser,urls);
     }
 
     /**
      * htmlUnit
-     * @param url
-     * @param pageParser
+     *
      */
-    public static void htmlUnitCrawle(boolean sync,String url,PageParser pageParser) {
-        singleCrawle(sync,url,htmlUnitPageLoader,pageParser);
+    public static void htmlUnitCrawle(boolean sync,Select select, PageParser pageParser, String... urls) {
+        singleCrawle(sync,select,htmlUnitPageLoader,pageParser,urls);
     }
 
-    /**
-     * htmlUnit
-     * @param urlList
-     * @param pageParser
-     */
-
-    public static void htmlUnitCrawle(boolean sync,List<String> urlList, PageParser pageParser) {
-        singleCrawle(sync,urlList,htmlUnitPageLoader,pageParser);
-    }
-    /**
-     * Selenium+Phantomjs
-     * @param url
-     * @param pageParser
-     */
-    public static void SeleniumPhantomjsCrawle(boolean sync,String url,PageParser pageParser) {
-        singleCrawle(sync,url,seleniumPhantomjsPageLoader,pageParser);
-    }
 
     /**
      * Selenium+Phantomjs
-     * @param urlList
-     * @param pageParser
+     *
      */
-
-    public static void SeleniumPhantomjsCrawle(boolean sync,List<String> urlList, PageParser pageParser) {
-        singleCrawle(sync,urlList,seleniumPhantomjsPageLoader,pageParser);
+    public static void SeleniumPhantomjsCrawle(boolean sync,Select select, PageParser pageParser, String... urls) {
+        singleCrawle(sync,select,seleniumPhantomjsPageLoader,pageParser,urls);
     }
 
-    /**
-     * 单线程爬虫（单个url）
-     * @param url
-     * @param pageLoader
-     * @param pageParser
-     */
-    public static void singleCrawle(boolean sync,String url, PageLoader pageLoader, PageParser pageParser) {
-        crawle(sync,false,1,pageLoader,pageParser,url);
-    }
 
     /**
-     * 单线程爬虫（多个url）
-     * @param urlList
-     * @param pageLoader
-     * @param pageParser
+     * 单线程爬虫
+     *
      */
-    public static void singleCrawle(boolean sync,List<String> urlList, PageLoader pageLoader, PageParser pageParser) {
-        String[] urls=urlList.toArray(new String[urlList.size()]);
-        crawle(sync,false,1,pageLoader,pageParser,urls);
+    public static void singleCrawle(boolean sync,Select select, PageLoader pageLoader, PageParser pageParser, String... urls) {
+        crawleG(sync,false,1,select,pageLoader,pageParser,urls);
     }
 
     /**
@@ -133,6 +92,28 @@ public class XxlCrawlerUtil {
                 .setWhiteUrlRegexs(whiteUrlRegexs)
                 .setAllowSpread(allowSpread)
                 .setThreadCount(threadCount)
+                .setPageLoader(pageLoader)
+                .setPageParser(pageParser)
+                .build();
+        // 启动
+        crawler.start(sync);
+    }
+
+    /**
+     * 爬虫主程序
+     * @param allowSpread
+     * @param threadCount
+     * @param pageLoader
+     * @param pageParser
+     * @param urls
+     */
+    public static void crawleG(boolean sync, boolean allowSpread, int threadCount, Select select, PageLoader pageLoader, PageParser pageParser, String... urls) {
+        // 构造爬虫
+        XxlCrawlerG crawler = new XxlCrawlerG.Builder()
+                .setUrls(urls)
+                .setAllowSpread(allowSpread)
+                .setThreadCount(threadCount)
+                .setSelect(select)
                 .setPageLoader(pageLoader)
                 .setPageParser(pageParser)
                 .build();

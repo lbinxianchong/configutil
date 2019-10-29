@@ -31,8 +31,6 @@ public class DownloadUtil {
         }
         return imglocals;
     }
-    /*public static boolean ComicDownload(List<String> urls,String comicname,String chaptername){
 
-    }*/
 
 }

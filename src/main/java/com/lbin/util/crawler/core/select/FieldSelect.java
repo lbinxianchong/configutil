@@ -1,4 +1,4 @@
-package com.lbin.util.crawler.core;
+package com.lbin.util.crawler.core.select;
 
 import com.xuxueli.crawler.conf.XxlCrawlerConf;
 import lombok.Data;
@@ -9,8 +9,15 @@ public class FieldSelect {
     private String cssQuery;
     private String selectType;
     private String selectVal;
+    private String datePattern;
+    //level>2才使用设置参数类型，集合用List
+    private Class parmClass;
 
     public FieldSelect() {
+        this.cssQuery = "";
+        this.selectType = "TEXT";
+        this.selectVal = "";
+        this.datePattern = "yyyy-MM-dd HH:mm:ss";
     }
 
     public FieldSelect(String parmname, String cssQuery, String selectType, String selectVal) {
@@ -57,6 +64,23 @@ public class FieldSelect {
     public void setSelectType(String selectType) {
         this.selectType = selectType;
     }
+    public void setSelectType(XxlCrawlerConf.SelectType selectType) {
+        if (XxlCrawlerConf.SelectType.HTML == selectType){
+            this.selectType = "HTML";
+        }else if (XxlCrawlerConf.SelectType.VAL == selectType){
+            this.selectType = "VAL";
+        }else if (XxlCrawlerConf.SelectType.TEXT == selectType){
+            this.selectType = "TEXT";
+        }else if (XxlCrawlerConf.SelectType.TOSTRING == selectType){
+            this.selectType = "TOSTRING";
+        }else if (XxlCrawlerConf.SelectType.ATTR == selectType){
+            this.selectType = "ATTR";
+        }else if (XxlCrawlerConf.SelectType.HAS_CLASS == selectType){
+            this.selectType = "HAS_CLASS";
+        }else {
+            this.selectType = "TEXT";
+        }
+    }
 
     public String getSelectVal() {
         return selectVal;
@@ -64,6 +88,22 @@ public class FieldSelect {
 
     public void setSelectVal(String selectVal) {
         this.selectVal = selectVal;
+    }
+
+    public Class getParmClass() {
+        return parmClass;
+    }
+
+    public void setParmClass(Class parmClass) {
+        this.parmClass = parmClass;
+    }
+
+    public String getDatePattern() {
+        return datePattern;
+    }
+
+    public void setDatePattern(String datePattern) {
+        this.datePattern = datePattern;
     }
 
     @Override

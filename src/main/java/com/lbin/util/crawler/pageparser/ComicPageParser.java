@@ -9,12 +9,12 @@ import org.jsoup.nodes.Element;
 /**
  * 漫画处理
  */
-public class ComicPageParser<T extends Comic> extends PageParser<T> {
+public class ComicPageParser extends PageParser<Comic> {
     private Comic comic = new Comic();
     @Override
-    public void parse(Document document, Element element, T t) {
+    public void parse(Document document, Element element, Comic t) {
         this.comic=t;
-        this.comic.setComicurl(document.baseUri());
+        this.comic.setBaseUrl(element.baseUri());
     }
 
     public Comic getComic() {

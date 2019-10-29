@@ -13,15 +13,15 @@ import java.util.List;
 /**
  * 漫画图片处理
  */
-public class ChapterImgPageParser<T extends ChapterImg> extends PageParser <T> {
+public class ChapterImgPageParser extends PageParser <ChapterImg> {
     private ChapterImg chapterImg = new ChapterImg();
     private List<ChapterImg> chapterImgList = new ArrayList<>();
 
     @Override
-    public void parse(Document document, Element element, T t) {
+    public void parse(Document document, Element element, ChapterImg t) {
         if (chapterImgList.size()<=0){
             this.chapterImg=t;
-            this.chapterImg.setChapterimgurl(document.baseUri());
+            this.chapterImg.setBaseUrl(element.baseUri());
         }
         chapterImgList.add(t);
     }

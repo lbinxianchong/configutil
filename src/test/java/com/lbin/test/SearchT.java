@@ -1,22 +1,20 @@
-package com.lbin.util.crawler.website.demo.model;
+package com.lbin.test;
 
-import com.lbin.util.crawler.model.SearchPojo;
+import com.lbin.util.crawler.util.ModelUtil;
 import com.xuxueli.crawler.annotation.PageFieldSelect;
 import com.xuxueli.crawler.annotation.PageSelect;
-import lombok.*;
+import lombok.Data;
 
 import java.io.Serializable;
 
 import static com.xuxueli.crawler.conf.XxlCrawlerConf.SelectType.ATTR;
 
-
-//搜索url对象实体
-@Getter
-@Setter
-@RequiredArgsConstructor
-@EqualsAndHashCode(callSuper = true)
+/**
+ * 搜索实体
+ */
+@Data
 @PageSelect(cssQuery = ".mh-search-result > ul > li")
-public class DemoSearch extends SearchPojo implements Serializable {
+public class SearchT implements Serializable {
     private static final long serialVersionUID = 1L;
 
     /**
@@ -42,4 +40,13 @@ public class DemoSearch extends SearchPojo implements Serializable {
      */
     @PageFieldSelect(cssQuery = ".mh-worksbox > div > p > a > span")
     private String chapterlast;
+
+    public SearchT getSearch(){
+        SearchT search = new SearchT();
+        search.setUrl(ModelUtil.ToString(getUrl()));
+        search.setName(ModelUtil.ToString(getName()));
+        search.setUrlimg(ModelUtil.ToString(getUrlimg()));
+        search.setChapterlast(ModelUtil.ToString(getChapterlast()));
+        return search;
+    }
 }

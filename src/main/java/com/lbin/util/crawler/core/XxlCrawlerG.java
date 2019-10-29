@@ -1,5 +1,6 @@
 package com.lbin.util.crawler.core;
 
+import com.lbin.util.crawler.core.select.Select;
 import com.xuxueli.crawler.XxlCrawler;
 import com.xuxueli.crawler.loader.PageLoader;
 import com.xuxueli.crawler.model.RunConf;
@@ -37,7 +38,7 @@ public class XxlCrawlerG extends XxlCrawler {
     private ExecutorService crawlers = Executors.newCachedThreadPool();             // 爬虫线程池
     private List<CrawlerThread> crawlerThreads = new CopyOnWriteArrayList<CrawlerThread>();     // 爬虫线程引用镜像
 
-    private SelectPojo selectPojo = new SelectPojo();
+    private Select select = new Select();
 
     // ---------------------- get ----------------------
 
@@ -47,6 +48,10 @@ public class XxlCrawlerG extends XxlCrawler {
 
     public RunConf getRunConf() {
         return runConf;
+    }
+
+    public Select getSelect() {
+        return select;
     }
 
     // ---------------------- builder ----------------------
@@ -260,8 +265,8 @@ public class XxlCrawlerG extends XxlCrawler {
             return this;
         }
 
-        public Builder setSelectPojo(SelectPojo selectPojo) {
-            crawler.selectPojo = selectPojo;
+        public Builder setSelect(Select select) {
+            crawler.select = select;
             return this;
         }
 
