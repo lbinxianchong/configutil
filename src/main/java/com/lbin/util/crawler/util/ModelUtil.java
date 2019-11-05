@@ -205,6 +205,33 @@ public class ModelUtil {
         return s;
     }
 
+    public static Class toClass(String name){
+        if ("String".equals(name)){
+            return String.class;
+        }else if ("Byte".equals(name)){
+            return Byte.class;
+        }else if ("List".equals(name)){
+            return List.class;
+        }else if ("Boolean".equals(name)){
+            return Boolean.class;
+        }else if ("Short".equals(name)){
+            return Short.class;
+        }else if ("Integer".equals(name)){
+            return Integer.class;
+        }else if ("Long".equals(name)){
+            return Long.class;
+        }else if ("Float".equals(name)){
+            return Float.class;
+        }else if ("Double".equals(name)){
+            return Double.class;
+        }else if ("Date".equals(name)){
+            return Date.class;
+        }else {
+            return String.class;
+        }
+    }
+
+
 
 
 }
